@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Heart Disease Prediction</title>
+  <link rel="shortcut icon" href="../static/favicon-32x32.png" type="image/x-icon">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #F5F0BB, #C4DFAA, #90C8AC, #73A9AD);
+      background-size: 400% 400%;
+      animation: colorCycle 10s ease infinite;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+      animation: slideIn 1s ease;
+    }
+
+    @keyframes slideIn {
+      0% {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .image-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    p {
+      margin-bottom: 20px;
+      color: #666;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      text-align: center;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    @keyframes colorCycle {
+      0% {
+        background-position: 0% 50%;
+      }
+      25% {
+        background-position: 100% 50%;
+      }
+      50% {
+        background-position: 50% 100%;
+      }
+      75% {
+        background-position: 50% 0%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Heart Disease Prediction</h1>
+    
+    <div class="image-container">
+      <img src="../static/1.jpg" alt="Heart Disease Prediction">
+    </div>
+    
+    <p>Welcome to our Heart Disease Prediction website. We provide a state-of-the-art machine learning model that can predict the likelihood of heart disease based on various input factors such as age, gender, blood pressure, cholesterol levels, and more.</p>
+    
+    <p>Our model has been trained on a large dataset and has shown high accuracy in predicting heart disease cases. By using our prediction service, you can get valuable insights into your cardiovascular health and take appropriate actions for prevention and treatment.</p>
+    
+    <p>To try out our model and get your prediction, click the button below:</p>
+    
+    <div style="text-align: center;">
+      <a href="http://127.0.0.1:5000/input" class="button">Try Our Model</a>
+    </div>
+  </div>
+</body>
+</html>

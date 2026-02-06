@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
+    <link rel="shortcut icon" href="../static/favicon-32x32.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --light-background-color: #f2f2f2;
+            --light-text-color: #333;
+            --light-form-background: #fff;
+            --light-input-border: #ccc;
+            --light-button-background: #3498db;
+            --light-button-color: #fff;
+
+            --dark-background-color: #333;
+            --dark-text-color: #fff;
+            --dark-form-background: #222;
+            --dark-input-border: #888;
+            --dark-button-background: #3498db;
+            --dark-button-color: #fff;
+        }
+
+        body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #F5F0BB, #C4DFAA, #90C8AC, #73A9AD);
+      background-size: 400% 400%;
+      animation: colorCycle 10s ease infinite;
+    }
+
+        body.dark-theme {
+            background-color: var(--dark-background-color);
+            color: var(--dark-text-color);
+        }
+
+        h1 {
+            color: inherit;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .container {
+    width: 500px;
+    margin: 50px auto;
+    background-color: var(--light-form-background);
+    color: var(--light-text-color);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-theme .container {
+    background-color: var(--dark-form-background);
+    color: var(--dark-text-color);    
+}
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--light-input-border);
+            border-radius: 5px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--light-button-background);
+            color: var(--light-button-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        .toggle-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-container .toggle-label {
+            color: inherit;
+            margin-right: 5px;
+        }
+
+        .toggle-container .toggle-icon {
+            color: inherit;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Heart Disease Prediction</h1>
+    <div class="container">
+        <form method="POST" action="/input">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="sex">Sex (0 = Female, 1 = Male):</label>
+            <input type="number" id="sex" name="sex" required>
+
+            <label for="cp">Chest Pain Type (1-4):</label>
+            <input type="number" id="cp" name="cp" required>
+
+            <label for="trestbps">Resting Blood Pressure:</label>
+            <input type="number" id="trestbps" name="trestbps" required>
+
+            <label for="chol">Cholesterol:</label>
+            <input type="number" id="chol" name="chol" required>
+
+            <label for="fbs">Fasting Blood Sugar > 120 mg/dl (1 = True, 0 = False):</label>
+            <input type="number" id="fbs" name="fbs" required>
+
+            <label for="restecg">Resting ECG (0-2):</label>
+            <input type="number" id="restecg" name="restecg" required>
+
+            <label for="thalach">Maximum Heart Rate:</label>
+            <input type="number" id="thalach" name="thalach" required>
+
+            <label for="exang">Exercise Induced Angina (1 = Yes, 0 = No):</label>
+            <input type="number" id="exang" name="exang" required>
+
+            <label for="oldpeak">ST Depression Induced by Exercise:</label>
+            <input type="number" id="oldpeak" name="oldpeak" required>
+
+            <label for="slope">Slope of Peak Exercise ST Segment (1-3):</label>
+            <input type="number" id="slope" name="slope" required>
+
+            <label for="ca">Number of Major Vessels Colored by Fluoroscopy (0-3):</label>
+            <input type="number" id="ca" name="ca" required>
+
+            <label for="thal">Thalassemia Condition (3 = Normal, 6 = Fixed Defect, 7 = Reversible Defect):</label>
+            <input type="number" id="thal" name="thal" required>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="toggle-container">
+        <i class="fas fa-sun toggle-icon" onclick="toggleTheme()"></i>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.querySelector('.toggle-icon');
+
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                body.classList.add('dark-theme');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction Result</title>
+    <link rel="shortcut icon" href="../static/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #000000, rgb(103, 17, 114), #90C8AC, #73A9AD);
+            background-size: 400% 400%;
+            animation: colorCycle 10s ease infinite;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .result-container {
+            width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .result-label {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .result-text {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .suggestions, .precautions {
+            margin-top: 20px;
+        }
+
+        .suggestions h2, .precautions h2 {
+            margin-bottom: 10px;
+        }
+
+        .suggestions ul, .precautions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .suggestions ul li, .precautions ul li {
+            margin-bottom: 10px;
+        }
+
+        .suggestions ul li a, .precautions ul li {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .suggestions ul li a:hover, .precautions ul li:hover {
+            color: #2980b9;
+        }
+
+        .back-link {
+            text-align: center;
+        }
+
+        .back-link a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Heart Disease Prediction Result</h1>
+    <div class="result-container">
+        <div class="result-label">Prediction Result:</div>
+        <div class="result-text">{{ prediction }}</div>
+
+        <!-- Conditionally display links and suggestions based on prediction -->
+        {% if prediction == "Presence of Heart Disease" %}
+        <div class="suggestions">
+            <h2>Suggestions:</h2>
+            <ul>
+                <li><a href="https://www.heart.org/en/healthy-living/healthy-lifestyle">Healthy lifestyle tips</a></li>
+                <li><a href="https://www.mayoclinic.org/diseases-conditions/heart-disease/in-depth/heart-healthy-diet/art-20047702">Heart-healthy diet recommendations</a></li>
+                <li><a href="https://www.nhlbi.nih.gov/health-topics/physical-activity-and-your-heart">Physical activity guidelines</a></li>
+            </ul>
+        </div>
+        {% elif prediction == "Absence Of Heart Disease" %}
+        <div class="precautions">
+            <h2>Precautions:</h2>
+            <ul>
+                <li>Adopt a balanced diet rich in fruits, vegetables, and whole grains.</li>
+                <li>Engage in regular physical activity, such as walking, swimming, or cycling.</li>
+                <li>Avoid smoking and limit alcohol consumption.</li>
+                <li>Maintain a healthy weight and manage stress effectively.</li>
+                <li>Get regular check-ups and screenings for heart health.</li>
+            </ul>
+        </div>
+        {% endif %}
+
+        <div class="back-link">
+            <a href="/input">Go back</a>
+        </div>
+    </div>
+</body>
+</html>
